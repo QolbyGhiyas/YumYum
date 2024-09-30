@@ -22,21 +22,34 @@ body{
 }
 
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 100;
-    padding: 25px 5%;
     display: flex;
+    width: 100%;
+    z-index: 0;
     align-items: center;
     justify-content: space-between;
     transition: all .50s ease;
+    background: url(images/background.png);
 }
 
 .logo img{
-    width: 60%;
+    width: 50%;
     height: auto;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    display: inline-block;
+    margin: 0 35px;
+    color: var(--text-color);
+    font-size: var(--p-font);
+    transition: all .6s ease;
+}
+
+.navlist a:hover {
+    color: var(--main-color);
 }
 
 .right-content{
@@ -44,24 +57,6 @@ header {
     align-items: center;
 }
 
-.nav-btn{
-    display: inline-block;
-    padding: 9px 24px;
-    background: transparent;
-    border: 2px solid var(--text-color);
-    border-radius: 7px;
-    color: var(--text-color);
-    font-size: 15px;
-    font-weight: 500;
-    transition: all .6s ease;
-    
-}
-
-.nav-btn:hover{
-    transform: translateY(-5px);
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
-}
 
 #menu-icon{
     font-size: 42px;
@@ -78,19 +73,22 @@ section{
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: url(images/background.png);
     background-size: cover;
-    background-position: center;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    gap: 2rem;
+    gap: 7em;
 }
 
 .hero-img img{
-    width: 89%;
+    width: 80%;
     height: auto;
+}
+
+.hero-text {
+    max-width: 800px;
 }
 
 .hero-text h1{
@@ -118,6 +116,25 @@ section{
 .main-hero {
     display: flex;
     align-items: center;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    background: url(images/background.png);
+    padding: 18% 8%;
+}
+
+.tentang-saya{
+    text-align: left;
+    color: white;
+    font-size: 42px;
+}
+
+.tentang-saya p{
+    color: white;
+    font-size: 18px;
+    margin: 2em 0 3em;
 }
 
 .btn {
@@ -154,7 +171,7 @@ section{
 
 .icons{
     position: absolute;
-    top: 50%;
+    top: 154%;
     padding: 0 7%;
     transform: translateY(-50%);
 }
@@ -163,7 +180,7 @@ section{
     display: block;
     margin: 35px 0;
     color: var(--text-color);
-    font-size: 23px;
+    font-size: 45px;
     transition: all.6s;
 }
 
@@ -213,7 +230,7 @@ section{
     .icons{
         display: none;
     }
-    .section{
+    section{
         padding: 0 4%;
     }
 }
@@ -233,6 +250,29 @@ section{
 @media(max-width: 950px){
     #menu-icon{
         display: block;
+    }
+    .navlist{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        padding: 100px 50px;
+        top: 0;
+        right: 0;
+        left: 100%;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(32px);
+        transition: all .6s ease-in-out;
+    }
+    .navlist a{
+        display: block;
+        padding: 0;
+        margin: 0px 0px 25px 0px;
+        font-size: 1.7rem;
+    }
+    .navlist.open{
+        left: 0;
     }
     .scroll{
         display: none;
@@ -255,6 +295,28 @@ section{
         object-fit: contain;
     }
 }   
+
+@media(max-width: 920px){
+    .scroll{
+        display: none;
+    }
+    .hero{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .hero-text{
+        padding-top: 130px;
+    }
+    .hero-img{
+        height: 500px;
+        width: 500px;
+    }
+    .hero-img img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
 
 @media(max-width: 570px){
     .hero{
